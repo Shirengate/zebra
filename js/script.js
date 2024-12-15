@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   /// смена темы
-
   $(".changeTheme").click(function (e) {
     const paths = $("path");
     $.each(paths, function (indexInArray, valueOfElement) {
