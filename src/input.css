@@ -112,6 +112,7 @@
   height: 20px;
   cursor: pointer;
   display: block;
+  background-color: black;
 }
 
 .fixedHeader {
@@ -125,8 +126,7 @@
   flex-wrap: wrap;
   position: sticky;
   top: 0;
-  filter: invert(1);
-  mix-blend-mode: difference;
+  color: black;
   /* filter: invert(1);
   mix-blend-mode: screen; */
 }
@@ -175,7 +175,7 @@ nav a:before {
   left: 0;
   width: 0%;
   border-top: 1px solid black;
-  content: "";
+  content: attr(data-bottom);
   transition: 0.4s;
 }
 
@@ -201,12 +201,12 @@ nav a:hover:before {
   transition: all 0.2s ease;
   width: 100%;
   margin-top: 5px;
-  &:hover {
-    background-color: black;
-    color: white;
-    padding-left: 30px;
-  }
 }
+/* .projectNames a:hover{
+  background-color: black;
+  color: white;
+  padding-left: 30px;
+} */
 .parthnersLogoBox {
   margin-top: 55px;
   padding-bottom: 30px;
