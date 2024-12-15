@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tailwindcss -i ./src/input.css -o ./css/main.css --watch",
-    "build2":"tailwindcss -i ./src/bTheme.css -o ./css/bltheme.css --watch"
+    "build2":"tailwindcss -i ./src/blackTheme.css -o ./css/bltheme.css --watch"
   },
   "author": "",
   "license": "ISC",

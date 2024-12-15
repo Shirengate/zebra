@@ -1,30 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
   /// смена темы
-  if(localStorage.getItem('theme')=='black'){
-    $('#theme').attr('href','css/bltheme.css')
-  }else if(localStorage.getItem('theme') == 'white'){
-    $('#theme').attr('href','css/main.css')
+  if (localStorage.getItem("theme") == "black") {
+    $("#theme").attr("href", "css/bltheme.css");
+  } else if (localStorage.getItem("theme") == "white") {
+    $("#theme").attr("href", "css/main.css");
+
   }
-  
+
   /// запоминание темы для системы
-  $(".changeTheme").click(function(e) {
-    $(this).toggleClass('theme');
-    if($(this).hasClass('theme')){
-      localStorage.setItem('theme','black')
+  $(".changeTheme").click(function (e) {
+    $(this).toggleClass("theme");
+    if ($(this).hasClass("theme")) {
+      localStorage.setItem("theme", "black");
+
       //$('#theme').attr('href','css/bltheme.css')
-    }else{
-      localStorage.setItem('theme','white')
+    } else {
+      localStorage.setItem("theme", "white");
       //$('#theme').attr('href','css/main.css')
     }
-    if(localStorage.getItem('theme')=='black'){
-      $('#theme').attr('href','css/bltheme.css')
-    }else if(localStorage.getItem('theme') == 'white'){
-      $('#theme').attr('href','css/main.css')
+    if (localStorage.getItem("theme") == "black") {
+      $("#theme").attr("href", "css/bltheme.css");
+    } else if (localStorage.getItem("theme") == "white") {
+      $("#theme").attr("href", "css/main.css");
     }
-  })
+  });
 
   // начало работы со сменой темы
-
 
   // получение проектов
 
