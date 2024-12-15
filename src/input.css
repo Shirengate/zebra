@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bolderText: Bree Serif;
+  --grayColor: #bababa;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.body {
+  height: 100vh;
+  overflow: hidden;
+}
+.wrapper {
+  max-width: 2500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+}
+
+.leftColumn {
+  top: 0;
+  flex: 1;
+  background: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: sticky;
+  top: 0; /* Фиксация на верхней границе */
+  height: 100vh;
+
+  & a {
+    position: fixed;
+  }
+}
+
+.leftColumn {
+  position: relative;
+  width: 100%; /* Укажите ширину блока */
+  height: 100%; /* Укажите высоту блока */
+  overflow: hidden;
+  
+}
+.leftColumn > a{
+  z-index: 10;
+}
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Плавный переход для прозрачности */
+}
+
+.background-layer.current {
+  opacity: 1;
+  z-index: 1;
+}
+
+.background-layer.next {
+  z-index: 2;
+}
+
+.rightColumn {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.block1 {
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+/* .gif-follower {
+  position: absolute;
+  width: 350px;
+  height: 200px;
+  background-image: url("/img/girf-coursor.gif");
+  background-size: cover;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+  z-index: 0;
+} */
+/* .block1 > * {
+  position: relative;
+  z-index: 1;
+  bottom: 100%;
+} */
+.changeTheme {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: block;
+}
+
+.fixedHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  min-height: 50px;
+  height: 50px;
+  align-items: center;
+  font-weight: bolder;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  filter: invert(1);
+  mix-blend-mode: difference;
+  /* filter: invert(1);
+  mix-blend-mode: screen; */
+}
+.maincontent {
+  font-size: 10rem;
+  text-wrap: wrap;
+  align-self: start;
+  letter-spacing: -8px;
+  line-height: 150px;
+  font-family: var(--bolderText);
+  font-style: normal;
+  font-weight: 400;
+}
+.out {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+}
+
+.out > p {
+  width: 350px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: -10px;
+}
+.logo {
+  padding: 0 0 40px 30px;
+  box-sizing: border-box;
+  transition: all 0.4s;
+}
+/* медиазапрос чтоб текст не наезжал на экран */
+
+@media (max-width: 1370px) and (min-width: 1100px) {
+  .maincontent {
+    font-size: 130px;
+  }
+}
+nav a {
+  position: relative;
+  font-weight: normal;
+  font-size: 1.5rem;
+}
+nav a:before {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 0%;
+  border-top: 1px solid black;
+  content: "";
+  transition: 0.4s;
+}
+
+nav a:hover:before {
+  width: 100%;
+}
+.projects > p,
+.parthners > p,
+.contacs > p {
+  font-size: 20px;
+  color: var(--grayColor);
+}
+.projectNames {
+  margin-top: 55px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+.projectNames a {
+  display: block;
+  color: black;
+  font-size: 2rem;
+  font-weight: bolder;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-top: 5px;
+  &:hover {
+    background-color: black;
+    color: white;
+    padding-left: 30px;
+  }
+}
+.parthnersLogoBox {
+  margin-top: 55px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+
+  align-items: center;
+  justify-items: start;
+}
+.contacs > a {
+  display: inline-block;
+  height: 100%;
+  width: auto;
+  font-weight: bolder;
+  font-size: 2rem;
+  margin-top: 50px;
+  position: relative;
+}
+.contacs > a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border: 1px solid black;
+  top: 100%;
+  transition: all 0.4s;
+}
+.contacs > a:hover:before {
+  width: 0%;
+}
+
+/* работа с мобильниками */
+menu.mobileMenu {
+  display: grid;
+  grid-template-rows: 200px 1fr 70px;
+}
+.burgerBtn {
+  display: none;
+}
+.fixedHeader svg {
+  display: none;
+}
+.navigation {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navigation .navLinks a {
+  display: block;
+  font-weight: bolder;
+  font-size: 2rem;
+  margin-top: 3px;
+  text-transform: lowercase;
+}
+.navigation .contactsLinks a {
+  font-size: 2rem;
+  margin-left: 10px;
+}
+.sendBrif {
+  background-color: white;
+  border-radius: 4px;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+@media (max-width: 850px) {
+  .wrapper {
+    display: block;
+    height: 100%;
+  }
+  .fixedHeader svg {
+    display: block;
+  }
+  .burgerBtn {
+    display: block;
+  }
+  .leftColumn {
+    display: none;
+  }
+  .parthnersLogoBox {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .fixedHeader a {
+    display: none;
+  }
+  .fixedHeader {
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+  }
+  .changeTheme {
+    width: 30px;
+    height: 30px;
+    order: 1;
+  }
+  .burgerBtn {
+    order: 2;
+    display: block;
+  }
+  .maincontent {
+    font-size: 70px;
+    line-height: 80px;
+    letter-spacing: 1px;
+  }
+  .mobileMenu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    left: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: translate(100%);
+    transition: all 0.4s;
+  }
+}
+
+.navigation a {
+  color: white;
+}
