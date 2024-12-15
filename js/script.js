@@ -1,15 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
   /// смена темы
 
+  console.log($('.changeTheme').css('color'))
+
+  /// запоминание темы для системы
   $(".changeTheme").click(function (e) {
-    const paths = $("path");
-    $.each(paths, function (indexInArray, valueOfElement) {
-      if ($(this).attr("fill") == "white") {
-        $(this).attr("fill", "black");
-      } else if ($(this).attr("fill") === "black") {
-        $(this).attr("fill", "white");
-      }
-    });
+    if($('.changeTheme').css('background-color') === 'rgb(0, 0, 0)'){  
+      $(this).css('background-color','rgb(255, 255, 255)')
+      localStorage.setItem('theme','black')
+    }else if($('.changeTheme').css('background-color') === 'rgb(255, 255, 255)'){ 
+      $(this).css('background-color','rgb(0, 0, 0)')
+      localStorage.setItem('theme','white')
+    }
+
+    /// получение темы
+    const theme = localStorage.getItem('theme');
+    if(theme === 'black'){
+      $('*').css('color','white');
+      $(".leftColumn").css('background-color','white');
+      $(".rightColumn").css('background-color','black');
+      $(".projectNames a").css({
+        'background-color':'black'
+      })
+      $(".projectNames a").hover(function () {
+        $(this).css({
+          'background-color': 'white',
+          'color': 'black',
+          'padding-left': '30px'
+        })
+          
+        }, function () {
+          $(this).css({
+            'background-color': 'black',
+            'color': 'white',
+            'padding-left': '0px'
+          })
+        }
+      );
+    }else if(theme === 'white'){
+      $('*').css('color','black');
+      $(".leftColumn").css('background-color','black');
+      $(".rightColumn").css('background-color','white');
+    }
   });
 
   // получение проектов
@@ -30,6 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
       links.each(function (index) {
         $(this).hover(
           function () {
+            $(this).css({
+              'background-color': 'black',
+              'color': 'white',
+              'padding-left': '30px'
+            })
             // Устанавливаем изображение для следующего слоя
             nextLayer.css(
               "background-image",
@@ -49,6 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
           function () {
             // При уходе мыши убираем следующий слой
             nextLayer.css("opacity", 0);
+            $(this).css({
+              'background-color': 'white',
+              'color': 'black',
+              'padding-left': '0px'
+            })
           }
         );
       });
