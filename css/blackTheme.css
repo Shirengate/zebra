@@ -33,7 +33,7 @@
 .leftColumn {
   top: 0;
   flex: 1;
-  background: black;
+  background: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -82,13 +82,13 @@
   flex: 1;
   overflow-y: auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: black;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
 }
 .block1 {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   position: relative;
 }
 
@@ -112,7 +112,7 @@
   height: 20px;
   cursor: pointer;
   display: block;
-  background-color: black;
+  background-color: white;
 }
 
 .fixedHeader {
@@ -126,9 +126,9 @@
   flex-wrap: wrap;
   position: sticky;
   top: 0;
-  color: black;
-  filter: invert(1);
-  mix-blend-mode: difference;
+  color: white;
+  /* filter: invert(1);
+  mix-blend-mode: screen; */
 }
 .maincontent {
   font-size: 10rem;
@@ -195,7 +195,7 @@ nav a:hover:before {
 }
 .projectNames a {
   display: block;
-  color: black;
+  color: white;
   font-size: 2rem;
   font-weight: bolder;
   transition: all 0.2s ease;
@@ -213,14 +213,14 @@ a[data-theme="black"]:hover{
   padding-left: 30px;
 } */
 .projectNames a:hover{
-  background-color: black;
+  background-color: white;
   color: white;
   padding-left: 30px;
 }
 .parthnersLogoBox {
   margin-top: 55px;
   padding-bottom: 30px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   display: grid;
   grid-template-columns: repeat(3, 200px);
 
@@ -240,7 +240,7 @@ a[data-theme="black"]:hover{
   content: "";
   position: absolute;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid white;
   top: 100%;
   transition: all 0.4s;
 }

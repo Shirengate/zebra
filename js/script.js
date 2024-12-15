@@ -1,48 +1,30 @@
 document.addEventListener("DOMContentLoaded", function () {
   /// смена темы
-
-  console.log($('.changeTheme').css('color'))
-
+  if(localStorage.getItem('theme')=='black'){
+    $('#theme').attr('href','css/bltheme.css')
+  }else if(localStorage.getItem('theme') == 'white'){
+    $('#theme').attr('href','css/main.css')
+  }
+  
   /// запоминание темы для системы
-  $(".changeTheme").click(function (e) {
-    if($('.changeTheme').css('background-color') === 'rgb(0, 0, 0)'){  
-      $(this).css('background-color','rgb(255, 255, 255)')
+  $(".changeTheme").click(function(e) {
+    $(this).toggleClass('theme');
+    if($(this).hasClass('theme')){
       localStorage.setItem('theme','black')
-    }else if($('.changeTheme').css('background-color') === 'rgb(255, 255, 255)'){ 
-      $(this).css('background-color','rgb(0, 0, 0)')
+      //$('#theme').attr('href','css/bltheme.css')
+    }else{
       localStorage.setItem('theme','white')
+      //$('#theme').attr('href','css/main.css')
     }
+    if(localStorage.getItem('theme')=='black'){
+      $('#theme').attr('href','css/bltheme.css')
+    }else if(localStorage.getItem('theme') == 'white'){
+      $('#theme').attr('href','css/main.css')
+    }
+  })
 
-    /// получение темы
-    const theme = localStorage.getItem('theme');
-    if(theme === 'black'){
-      $('*').css('color','white');
-      $(".leftColumn").css('background-color','white');
-      $(".rightColumn").css('background-color','black');
-      $(".projectNames a").css({
-        'background-color':'black'
-      })
-      $(".projectNames a").hover(function () {
-        $(this).css({
-          'background-color': 'white',
-          'color': 'black',
-          'padding-left': '30px'
-        })
-          
-        }, function () {
-          $(this).css({
-            'background-color': 'black',
-            'color': 'white',
-            'padding-left': '0px'
-          })
-        }
-      );
-    }else if(theme === 'white'){
-      $('*').css('color','black');
-      $(".leftColumn").css('background-color','black');
-      $(".rightColumn").css('background-color','white');
-    }
-  });
+  // начало работы со сменой темы
+
 
   // получение проектов
 
@@ -58,21 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const links = $(".projectNames a");
       const currentLayer = $(".background-layer.current");
       const nextLayer = $(".background-layer.next");
-
       links.each(function (index) {
         $(this).hover(
           function () {
-            $(this).css({
-              'background-color': 'black',
-              'color': 'white',
-              'padding-left': '30px'
-            })
             // Устанавливаем изображение для следующего слоя
             nextLayer.css(
               "background-image",
               `url(${response.projects[index].src})`
             );
-
             // Делаем следующий слой видимым
             nextLayer.css("opacity", 1);
 
@@ -86,11 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
           function () {
             // При уходе мыши убираем следующий слой
             nextLayer.css("opacity", 0);
-            $(this).css({
-              'background-color': 'white',
-              'color': 'black',
-              'padding-left': '0px'
-            })
           }
         );
       });

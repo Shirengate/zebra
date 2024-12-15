@@ -619,7 +619,7 @@ video {
 
 .leftColumn {
   flex: 1;
-  background: black;
+  background: white;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -668,14 +668,15 @@ video {
 .rightColumn {
   flex: 1;
   padding: 20px;
-  background-color: #fff;
+  background-color: black;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  color: white;
 }
 
 .block1 {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   position: relative;
 }
 
@@ -701,7 +702,7 @@ video {
   height: 20px;
   cursor: pointer;
   display: block;
-  background-color: black;
+  background-color: white;
 }
 
 .fixedHeader {
@@ -715,8 +716,7 @@ video {
   flex-wrap: wrap;
   position: sticky;
   top: 0;
-  color: black;
-  filter: invert(1);
+  color: white;
   mix-blend-mode: difference;
 }
 
@@ -769,7 +769,7 @@ nav a:before {
   top: 30px;
   left: 0;
   width: 0%;
-  border-top: 1px solid black;
+  border-top: 1px solid white;
   content: attr(data-bottom);
   transition: 0.4s;
 }
@@ -788,12 +788,12 @@ nav a:hover:before {
 .projectNames {
   margin-top: 55px;
   padding-bottom: 30px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 
 .projectNames a {
   display: block;
-  color: black;
+  color: white;
   font-size: 2rem;
   font-weight: bolder;
   transition: all 0.2s ease;
@@ -813,15 +813,15 @@ a[data-theme="black"]:hover{
 } */
 
 .projectNames a:hover{
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   padding-left: 30px;
 }
 
 .parthnersLogoBox {
   margin-top: 55px;
   padding-bottom: 30px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   display: grid;
   grid-template-columns: repeat(3, 200px);
   align-items: center;
@@ -842,7 +842,7 @@ a[data-theme="black"]:hover{
   content: "";
   position: absolute;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid white;
   top: 100%;
   transition: all 0.4s;
 }
