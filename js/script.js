@@ -12,10 +12,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $(this).toggleClass("theme");
     if ($(this).hasClass("theme")) {
       localStorage.setItem("theme", "black");
-
+      $(".burgerBtn").css("color", "white");
       //$('#theme').attr('href','css/bltheme.css')
     } else {
       localStorage.setItem("theme", "white");
+      $(".burgerBtn").css("color", "black");
       //$('#theme').attr('href','css/main.css')
     }
     if (localStorage.getItem("theme") == "black") {
@@ -91,16 +92,26 @@ document.addEventListener("DOMContentLoaded", function () {
     .css("opacity", "0.8");
 
   // меню бургер
-  const wrapperHeight = "1900px";
-  $(".mobileMenu").hide();
+  const wrapperHeight = "1900px";  $(".mobileMenu").hide();
   $(".burgerBtn ").click(function () {
     $(".mobileMenu").toggleClass("menu");
     if ($(".mobileMenu").hasClass("menu")) {
       $(".mobileMenu").show();
+      if(localStorage.getItem('theme')== 'black'){
+        $(".burgerBtn").css("color", "white");
+      }else{
+        $(".burgerBtn").css("color", "black");
+      }
+    
       $(".changeTheme").hide();
       $(".burgerBtn").removeClass("fa-solid fa-bars");
       $(".burgerBtn").addClass("fa-solid fa-xmark");
-      $(".burgerBtn").css("color", "black");
+      if(localStorage.getItem('theme')== 'black'){
+        $(".burgerBtn").css("color", "white");
+      }else{
+        $(".burgerBtn").css("color", "black");
+      }
+  
       $(".mobileMenu").css("transform", "translate(-100%)");
       const menuWidth = "663.2px";
       console.log(menuWidth);
@@ -112,7 +123,11 @@ document.addEventListener("DOMContentLoaded", function () {
       $(".changeTheme").show();
       $(".burgerBtn").removeClass("fa-solid fa-xmark");
       $(".burgerBtn").addClass("fa-solid fa-bars");
-      $(".burgerBtn").css("color", "black");
+      if(localStorage.getItem('theme')== 'black'){
+        $(".burgerBtn").css("color", "white");
+      }else{
+        $(".burgerBtn").css("color", "black");
+      }
       $(".mobileMenu").css("transform", "translate(100%)");
       $(".wrapper").css({
         height: `${wrapperHeight}`,
