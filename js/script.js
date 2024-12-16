@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#theme").attr("href", "css/bltheme.css");
   } else if (localStorage.getItem("theme") == "white") {
     $("#theme").attr("href", "css/main.css");
-
   }
 
   /// запоминание темы для системы
@@ -12,10 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     $(this).toggleClass("theme");
     if ($(this).hasClass("theme")) {
       localStorage.setItem("theme", "black");
-
+      $(".burgerBtn").css("color", "white");
       //$('#theme').attr('href','css/bltheme.css')
     } else {
       localStorage.setItem("theme", "white");
+      $(".burgerBtn").css("color", "black");
       //$('#theme').attr('href','css/main.css')
     }
     if (localStorage.getItem("theme") == "black") {
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
           function () {
             // При уходе мыши убираем следующий слой
             nextLayer.css("opacity", 0);
-             }
+          }
         );
       });
     },
@@ -97,27 +97,53 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".mobileMenu").toggleClass("menu");
     if ($(".mobileMenu").hasClass("menu")) {
       $(".mobileMenu").show();
+      if (localStorage.getItem("theme") == "black") {
+        $(".burgerBtn").css("color", "white");
+      } else {
+        $(".burgerBtn").css("color", "black");
+      }
+
       $(".changeTheme").hide();
       $(".burgerBtn").removeClass("fa-solid fa-bars");
       $(".burgerBtn").addClass("fa-solid fa-xmark");
-      $(".burgerBtn").css("color", "black");
+      if (localStorage.getItem("theme") == "black") {
+        $(".burgerBtn").css("color", "white");
+      } else {
+        $(".burgerBtn").css("color", "black");
+      }
+
       $(".mobileMenu").css("transform", "translate(-100%)");
       const menuWidth = "663.2px";
       console.log(menuWidth);
       $(".wrapper").css({
-        height: `720px`,
+        height: `100vh`,
         overflow: "hidden",
       });
     } else {
       $(".changeTheme").show();
       $(".burgerBtn").removeClass("fa-solid fa-xmark");
       $(".burgerBtn").addClass("fa-solid fa-bars");
-      $(".burgerBtn").css("color", "black");
+      if (localStorage.getItem("theme") == "black") {
+        $(".burgerBtn").css("color", "white");
+      } else {
+        $(".burgerBtn").css("color", "black");
+      }
       $(".mobileMenu").css("transform", "translate(100%)");
       $(".wrapper").css({
-        height: `${wrapperHeight}`,
+        height: `100%`,
         overflow: "none",
       });
     }
   });
+  /// переброс по навигации из мобильного меню
+  const menuLinks = document.querySelectorAll('.navLinks a');
+  const [projects,partners,contacts] = [document.querySelector('#projects'),document.querySelector('#partners'),document.querySelector('#contacts')];
+  menuLinks.forEach(async function (e) {
+    e.addEventListener('click',function(event){
+      event.preventDefault();
+      const link = document.getElementById(event.target.getAttribute('href'));
+      $('.burgerBtn').trigger('click');
+      link.scrollIntoView({behavior:'smooth',block:'start'})
+    })
+  })
 });
