@@ -133,6 +133,9 @@ document.addEventListener("DOMContentLoaded", function () {
         height: `100%`,
         overflow: "none",
       });
+      setTimeout(() =>{
+        $(".mobileMenu").hide();
+      },500)
     }
   });
   /// переброс по навигации из мобильного меню
