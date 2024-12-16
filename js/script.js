@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
           function () {
             // При уходе мыши убираем следующий слой
             nextLayer.css("opacity", 0);
-          }
+             }
         );
       });
     },
