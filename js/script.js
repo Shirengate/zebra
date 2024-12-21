@@ -2,8 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   /// смена темы
   if (localStorage.getItem("theme") == "black") {
     $("#theme").attr("href", "css/bltheme.css");
+    $('.parthnersLogoBox svg path').attr('fill','white')
   } else if (localStorage.getItem("theme") == "white") {
     $("#theme").attr("href", "css/main.css");
+    $('.parthnersLogoBox svg path').attr('fill','black')
+    
   }
 
   /// запоминание темы для системы
@@ -12,16 +15,21 @@ document.addEventListener("DOMContentLoaded", function () {
     if ($(this).hasClass("theme")) {
       localStorage.setItem("theme", "black");
       $(".burgerBtn").css("color", "white");
+      
       //$('#theme').attr('href','css/bltheme.css')
     } else {
       localStorage.setItem("theme", "white");
       $(".burgerBtn").css("color", "black");
+      
+
       //$('#theme').attr('href','css/main.css')
     }
     if (localStorage.getItem("theme") == "black") {
       $("#theme").attr("href", "css/bltheme.css");
+      $('.parthnersLogoBox svg path').attr('fill','white')
     } else if (localStorage.getItem("theme") == "white") {
       $("#theme").attr("href", "css/main.css");
+      $('.parthnersLogoBox svg path').attr('fill','black')
     }
   });
 
